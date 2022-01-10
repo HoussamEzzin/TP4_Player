@@ -4,6 +4,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.net.Uri;
 import android.os.Bundle;
 import android.content.ComponentName;
 import android.content.Context;
@@ -32,8 +33,9 @@ public class HomeActivite extends Activity {
             @Override
 
             public void onClick(View v) {
-
+                Uri myUri = Uri.parse("android.resource://com.example.tp4_player/" + R.raw.music);
                 Intent service = new Intent(HomeActivite.this, ServiceMusique.class);
+                service.setData(myUri);
 
                 startService(service);
 
@@ -56,5 +58,7 @@ public class HomeActivite extends Activity {
         });
 
     }
+
+
 
 }
