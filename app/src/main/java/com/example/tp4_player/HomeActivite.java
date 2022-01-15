@@ -14,6 +14,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 
 public class HomeActivite extends Activity {
@@ -24,10 +25,23 @@ public class HomeActivite extends Activity {
 
         setContentView(R.layout.activity_main);
 
-        Button play, stop;
+        Button play, stop, liste;
 
         play = (Button) findViewById(R.id.buttonDemarrer);
         stop = (Button) findViewById(R.id.buttonArreter);
+        liste = (Button) findViewById(R.id.buttonListe);
+
+        liste.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivite.this,MyPlayList.class);
+                HomeActivite.this.startActivity(intent);
+            }
+        });
+
+
+
+
         play.setOnClickListener(new View.OnClickListener() {
 
             @Override
